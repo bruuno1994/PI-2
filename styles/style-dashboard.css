@@ -9,6 +9,17 @@ body {
     padding: 25px;
 }
 
+h2 {
+  color:#f6782c;
+  font-size: 40px;
+  border: 3px solid #2E64FE;
+  border-radius: 10px;
+  position: absolute;
+  padding: 10px;
+  text-shadow: 3px 2px 5px black;
+  box-shadow: 5px 5px 4px gray;
+}
+
   .imagem {
     display: flex;
     align-items: center;
@@ -39,7 +50,7 @@ body {
     padding: 2px;
   }
 
-  #formulario button {
+  #formulario button, button {
     border: 2px solid #2E64FE;
     border-radius: 5px;
     padding: 5px;
@@ -47,7 +58,7 @@ body {
     background-color: lightblue;
   }
 
-  #formulario button:hover {
+  #formulario button:hover, button:hover {
     border: 2px solid black;
     border-radius: 5px;
     padding: 5px;
