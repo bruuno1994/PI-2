@@ -72,29 +72,25 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-form {
+    margin: 0 auto;
     border: 1px solid #0061a6;
     border-radius: 15px;
     width: 320px;
     height: 490px;
     position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
     background: lightgray;
     color:#0061a6;
     box-shadow: 7px 7px 4px gray;
-}
+  }
 
-form input {
+
+#formulario input {
     background-color: lightblue;
     border: 2px solid #0061a6;
 }
 
-form img {
+#formulario img {
     width: 100px;
     height: 100px;
     position: absolute;
@@ -103,14 +99,14 @@ form img {
     transform: translate(-50%, -50%);
 }
 
-form button {
+#formulario button {
     padding: 5px;
     border-radius: 5px;
     color:#0061a6;
     background-color: lightblue;
 }
 
-form button:hover {
+#formulario button:hover {
     padding: 5px;
     border-radius: 5px;
     color:lightblue;
