@@ -60,11 +60,31 @@ body {
     height: 100px;
 }
 
-#container {
-  padding: 10px;
-  margin: 10px;
+#noticias {
+  font-size: 1vw;
+  text-align: center;
+  padding: 1vw 1vw 10vw 1vw;
+  min-width:40vw;
+  
+
 }
 
+#caixadetexto { 
+  padding: 1vw 1vw 10vw 1vw;
+  font-size: 2vw;
+  text-align: center;
+ 
+}
+#imgs {
+ 
+  width: 270px;
+  height: 100px;
+}
+#imgs img {
+  width: 270px;
+  height: 100px;
+  object-fit: fill;
+}
 .imagem {
   display: flex;
   align-items: center;
