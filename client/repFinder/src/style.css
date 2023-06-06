@@ -1,89 +1,223 @@
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+    text-align: center;
+    margin-top: 20px;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+body {
+  height: calc(100% - 100px);
+}
+
+#cabecalho {
+  border-bottom: 1px solid midnightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  list-style: none;
+  background-color: #2E64FE;
+}
+
+#cabecalho ul {
+  list-style: none;
+  display: flex;
+}
+
+#cabecalho li a {
+  font-size: 1.3em;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
   cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
 }
 
-.card {
-  padding: 2em;
+#cabecalho li a:hover {
+  font-size: 1.3em;
+  text-decoration: none;
+  padding: 10px;
+  color: orange;
+  cursor: pointer;
+  border-bottom: 1px solid white;
+
 }
 
-#app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#logo img {
+    width: 100px;
+    height: 100px;
+}
+
+#noticias {
+  font-size: 1vw;
   text-align: center;
+  padding: 1vw 1vw 10vw 1vw;
+  min-width:40vw;
+  
+
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+#caixadetexto { 
+  padding: 1vw 1vw 10vw 1vw;
+  font-size: 2vw;
+  text-align: center;
+ 
+}
+#imgs {
+ 
+  width: 270px;
+  height: 100px;
+}
+#imgs img {
+  width: 270px;
+  height: 100px;
+  object-fit: fill;
+}
+.imagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem img {
+  width: 250px;
+}
+
+.footer {
+  
+  background: #3586ff;
+  min-height: 50px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.bodybox  {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100vh;
+}
+
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-15px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+  transform: scale(1.25);
+  border-bottom: 1px solid white;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
   }
-  a:hover {
-    color: #747bff;
+  100% {
+    background-positon-x: 0px;
   }
-  button {
-    background-color: #f9f9f9;
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
   }
 }
