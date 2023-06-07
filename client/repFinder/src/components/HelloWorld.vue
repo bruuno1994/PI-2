@@ -1,12 +1,12 @@
 <script setup>
-const input = document.querySelector("input");
-const body = document.querySelector("body");
+// const input = document.querySelector("input");
+// const body = document.querySelector("body");
 
-const toggleThemeMode = () => {
-    body.classList.toggle("dark");
-};
+// const toggleThemeMode = () => {
+//     body.classList.toggle("dark");
+// };
 
-input.onchange = toggleThemeMode;
+// input.onchange = toggleThemeMode;
 </script>
 
 <template>

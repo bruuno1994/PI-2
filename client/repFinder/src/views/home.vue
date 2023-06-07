@@ -1,25 +1,12 @@
-<template>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <body>
-    <header id="cabecalho">
-      <ul>     
-        <li><a href="" id="producao"> Quem Somos </a></li>
-        <li><a href="/pages/nossa-equipe.html"> Nossa Equipe </a></li>
-        <li><a href="/pages/login.html"> Login </a></li>
-      </ul>
-    </header>
-
-    <div id="logo">
-      <a href="/index.html"><img src="/img/logo-projeto.png" alt="logo-projeto"></a>
-    </div>
-
+<template>  
+  <div>
     <label class="switch">
         <input type="checkbox" />
-        <span class="slider"></span>
+        <span class="slider"><HelloWorld></HelloWorld></span>
     </label>
 
     <div class="imagem">
-      <img src="/img/rep-finder.png" alt="Imagem do Sistema">
+      <img src="../img/rep-finder.png" alt="Imagem do Sistema">
     </div>
       
     <div class="news">
@@ -37,15 +24,15 @@
               <p class="card-text">Fornecer uma ferramenta que visa facilitar a gestão de representantes comerciais por meio de uma solução inovadora e eficiente.</p>          </div>
               </div>
             <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">
-              <div class="card-header"><div id="imgs"><img src="/img/Por-que-minha-empresa-nao-aparece-no-Google-maps.jpg" alt="Imagem do Sistema"></div></div>
+              <div class="card-header"><div id="imgs"><img src="../img/Por-que-minha-empresa-nao-aparece-no-Google-maps.jpg" alt="Imagem do Sistema"></div></div>
               <div class="card-body">
               <h5 class="card-title">Objetivo</h5>
               <p class="card-text">tornar a gestão de representantes comerciais mais eficiente e produtiva, proporcionando uma melhor distribuição de atendimento e maximizando a área atendida pela empresa.</p>
             </div>
           </div>
-  
+
           <div class="card text-white bg-info mb-3" style="max-width: 18rem;">
-            <div class="card-header"><div id="imgs"><img src="/img/unnamed.png" alt="Imagem do Sistema"></div></div>
+            <div class="card-header"><div id="imgs"><img src="../img/unnamed.png" alt="Imagem do Sistema"></div></div>
             <div class="card-body">
               <h5 class="card-title">Metas a serem alcançadas</h5>
               <p class="card-text">Nossa principal meta é por meio de um mapa interativo mostras as ares em que sua empresa tem o melhor desempenho e onde é preciso atenção para mmaximizar a cobertura de atendimento.</p>
@@ -84,72 +71,264 @@
           </div>
         </div>
       </div>
-    </div>
+  </div>
 
-    <div class="bodybox">
-      <footer class="footer">
-        <div class="waves">
-        <div class="wave" id="wave1"></div>
-        <div class="wave" id="wave2"></div>
-        <div class="wave" id="wave3"></div>
-        <div class="wave" id="wave4"></div>
-        </div>
+  <div class="bodybox">
+    <footer class="footer">
+      <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+      </div>
 
-        <ul class="social-icon">
-          <li class="social-icon__item"><a class="social-icon__link" href="#">
-            <ion-icon name="logo-facebook"></ion-icon>
-          </a></li>
-          <li class="social-icon__item"><a class="social-icon__link" href="#">
-            <ion-icon name="logo-twitter"></ion-icon>
-          </a></li>
-          <li class="social-icon__item"><a class="social-icon__link" href="#">
-            <ion-icon name="logo-linkedin"></ion-icon>
-          </a></li>
-          <li class="social-icon__item"><a class="social-icon__link" href="#">
-            <ion-icon name="logo-instagram"></ion-icon>
-          </a></li>
-        </ul>
+      <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+      </ul>
 
-        <ul class="menu">
-          <li class="menu__item"><a class="menu__link" href="/index.html">Inicio</a></li>
-          <li class="menu__item"><a class="menu__link" href="#">Quem Somos</a></li>
-          <li class="menu__item"><a class="menu__link" href="/pages/nossa-equipe.html">Nossa Equipe</a></li>
-          <li class="menu__item"><a class="menu__link" href="/pages/login.html">Login</a></li>
-        </ul>
+      <ul class="menu">
+        <li class="menu__item"><a class="menu__link" href="/index.html">Inicio</a></li>
+        <li class="menu__item"><a class="menu__link" href="#">Quem Somos</a></li>
+        <li class="menu__item"><a class="menu__link" href="/pages/nossa-equipe.html">Nossa Equipe</a></li>
+        <li class="menu__item"><a class="menu__link" href="/pages/login.html">Login</a></li>
+      </ul>
 
-      <p>&copy; 2023 2°DSM FATEC FRANCA  | All Rights Reserved</p>
-      </footer>
-    </div>
-  </body>
-
+    <p>&copy; 2023 2°DSM FATEC FRANCA  | All Rights Reserved</p>
+    </footer>
+  </div>
+</div>
 </template>
-
 <script>
-export default {
-    data() {
-        return {
-            msg: '',
-            users: []
-        }
-    },
-    methods: {
-        async getUsers() {
-            try {
-                const response = await fetch('http://localhost:3000/api/getUsers');
-                const data = await response.json();
-                this.users = data;
-            } catch (error) {
-                this.msg = error.message;
-            }
-        }
-    },
-}
+  export default {
+    name: "Home"
+  }
 </script>
-
-<style scoped>
-
-ul li {
-    list-style: none;
+<style>
+  h1 {
+    text-align: center;
+    margin-top: 20px;
 }
 
+body {
+  height: calc(100% - 100px);
+}
+
+#cabecalho {
+  border-bottom: 1px solid midnightblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100px;
+  list-style: none;
+  background-color: #2E64FE;
+}
+
+#cabecalho ul {
+  list-style: none;
+  display: flex;
+}
+
+#cabecalho li a {
+  font-size: 1.3em;
+  text-decoration: none;
+  padding: 10px;
+  color: white;
+  cursor: pointer;
+}
+
+#cabecalho li a:hover {
+  font-size: 1.3em;
+  text-decoration: none;
+  padding: 10px;
+  color: orange;
+  cursor: pointer;
+  border-bottom: 1px solid white;
+
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#logo img {
+    width: 100px;
+    height: 100px;
+}
+
+#noticias {
+  font-size: 1vw;
+  text-align: center;
+  padding: 1vw 1vw 10vw 1vw;
+  min-width:40vw;
+  
+
+}
+
+#caixadetexto { 
+  padding: 1vw 1vw 10vw 1vw;
+  font-size: 2vw;
+  text-align: center;
+ 
+}
+#imgs {
+ 
+  width: 270px;
+  height: 100px;
+}
+#imgs img {
+  width: 270px;
+  height: 100px;
+  object-fit: fill;
+}
+.imagem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imagem img {
+  width: 250px;
+}
+
+.footer {
+  
+  background: #3586ff;
+  min-height: 50px;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+.bodybox  {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 100vh;
+}
+
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-15px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+  transform: scale(1.25);
+  border-bottom: 1px solid white;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://i.ibb.co/wQZVxxk/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 4s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 4s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 3s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 3s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
 </style>

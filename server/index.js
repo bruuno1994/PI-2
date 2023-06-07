@@ -1,69 +1,67 @@
-const express = require("express");
-const app = express();
-const cors = require("cors");
-const { connection } = require("./data/data");
+const express = require("express")
+const app = express()
+const cors = require("cors")
+const { pool } = require("./data/data")
+app.use(express.json())
+app.use(cors())
+app.listen(3000, () => {
+    console.log("Servidor está ativo na porta 3000!")
+})
 
-app.use(cors());
-app.use(express.json());
-app.listen(6000, () => {
-    console.log("Servidor ativo na porta 6000");
-});
-
-// Encerrar as conexões do connection ao final do processo
+// cria o método de encerrar processo com o banco logo após a requisição
 process.on('SIGINT', () => {
-    connection.end();
+    pool.end();
     process.exit();
-});
+})
 
-app.post('/api/registerUser', async (req, res) => {
+let register = null;
+
+app.post("/registerRep", async (req, res) => {
     try {
-        const { nome, email, senha } = req.body;
-        await connection.query(
-            `INSERT INTO Users (id, nome, email, senha) VALUES (uuid_generate_v4(), ?, ?, ?)`,
-            [nome, email, senha]
-        );
-        res.send("Cadastro realizado com sucesso!");
+        register = await pool.connect();
+        const { nome, data_nasc, sexo, marcas } = req.body
+        await register.query(`INSERT INTO representante
+        (nome, data_nasc, sexo, marcas)
+         VALUES ('${nome}', '${data_nasc}', '${sexo}', '${marcas}')`)
+        res.status(200).send("Cadastro realizado com sucesso")
     } catch (error) {
+        res.status(500).send("Não conectou ao servidor")
+        console.log(error)
+    } finally {
+        register.release();
+    } 
+})
+
+app.get('/getRep/:nome', async(req, res) => {
+    try {
+        const { nome } = req.params;
+        register = await pool.connect();
+        const data = await register.query(`SELECT nome, marcas FROM representante where nome = '${nome}' `);
+        res.send(data.rows)
+    } catch (error) {
+        res.status(500).send('Erro na consulta')
+    }
+})
+
+app.put("/updateRep", async (req, res) => {
+    try {
+        const { nome, marca_a, marca_b, marca_c, marca_d, marca_e } = req.body;
+        pool.query (`UPDATE representante SET nome = '${nome}',marca_a = ${marca_a}, marca_b = ${marca_b}, marca_c = ${marca_c}, marca_d = ${marca_d}, marca_e = ${marca_e} WHERE nome = '${nome}'`)
+        res.status(200).send("Usuário atualizado com sucesso")
+    }catch (error) {
         console.error(error);
-        res.status(500).send("Erro ao cadastrar usuário");
+        res.status(500).send("Erro de conexão com o servidor");        
     }
 });
 
-app.get('/getRep', async (req, res) => {
+app.delete("/deleteRep", async (req, res) => {
     try {
-        const data = await connection.query(`SELECT * FROM representante`);
-        res.send(data[0]);
-        console.log(data.rows);
-    } catch (error) {
+        const { nome } = req.body;
+        client = await pool.connect();        
+        pool.query (`DELETE FROM representante WHERE nome = '${nome}'`)
+        res.status(200).send("Usuário deletado com sucesso")             
+    }catch (error) {
         console.error(error);
-        res.status(500).send('Erro na consulta');
-    }
-});
-
-app.post("/api/updateUser", async (req, res) => {
-    try {
-        const { email, nome, senha } = req.body;
-        await connection.query(
-            `UPDATE Users SET nome = ?, senha = ? WHERE email = ?`,
-            [nome, senha, email]
-        );
-        res.status(200).send("Usuário atualizado com sucesso");
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Erro de conexão com o servidor");
-    }
-});
-
-app.delete("/api/deleteUser", async (req, res) => {
-    try {
-        const { email, senha } = req.body;
-        await connection.query(
-            `DELETE FROM Users WHERE email = ?`,
-            [email]
-        );
-        res.status(200).send("Usuário deletado com sucesso");
-    } catch (error) {
-        console.error(error);
-        res.status(500).send("Erro de conexão com o servidor");
+        res.status(500).send("Erro de conexão com o servidor");        
     }
 });
