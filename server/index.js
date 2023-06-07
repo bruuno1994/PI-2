@@ -31,8 +31,12 @@ app.post('/api/registerUser', async (req, res) => {
 
 app.get('/getRep', async (req, res) => {
     try {
-        const data = await connection.query(`SELECT * FROM representante`);
-        res.send(data[0]);
+        const data = await connection.query(`SELECT * FROM representante`, function(error, result, fields){
+            if(error) throw error;
+
+            console.log(result);
+        });
+        res.send(data.rows);
         console.log(data.rows);
     } catch (error) {
         console.error(error);
