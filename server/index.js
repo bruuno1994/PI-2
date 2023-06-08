@@ -19,13 +19,13 @@ let register = null;
 app.post("/registerRep", async (req, res) => {
     try {
         register = await pool.connect();
-        const { nome, data_nasc, sexo, marcas } = req.body
+        const { nome, data_nasc, sexo, marcas, cidades, estado } = req.body
         await register.query(`INSERT INTO representante
-        (nome, data_nasc, sexo, marcas)
-         VALUES ('${nome}', '${data_nasc}', '${sexo}', '${marcas}')`)
-        res.status(200).send("Cadastro realizado com sucesso")
+        (nome, data_nasc, sexo, marcas, cidades, estado)
+         VALUES ('${nome}', '${data_nasc}', '${sexo}', '${marcas}', '${cidades}', '${estado}')`)
+        res.status(200).send("Cadastro realizado com sucesso!")
     } catch (error) {
-        res.status(500).send("Não conectou ao servidor")
+        res.status(500).send("Não conectou ao servidor.")
         console.log(error)
     } finally {
         register.release();
@@ -36,31 +36,31 @@ app.get('/getRep/:nome', async(req, res) => {
     try {
         const { nome } = req.params;
         register = await pool.connect();
-        const data = await register.query(`SELECT nome, marcas FROM representante where nome = '${nome}' `);
+        const data = await register.query(`SELECT nome, marcas, cidades, estado FROM representante where nome = '${nome}' `);
         res.send(data.rows)
     } catch (error) {
-        res.status(500).send('Erro na consulta')
+        res.status(500).send('Erro na consulta!')
     }
 })
 
 app.get('/getAllRep', async(req, res) => {
     try {
         register = await pool.connect();
-        const data = await register.query(`SELECT nome FROM representante`);
+        const data = await register.query(`SELECT nome, data_nasc, marcas, cidades, estado FROM representante`);
         res.send(data.rows)
     } catch (error) {
-        res.status(500).send('Erro na consulta')
+        res.status(500).send('Erro na consulta!')
     }
 })
 
 app.put("/updateRep", async (req, res) => {
     try {
-        const { nome, marca_a, marca_b, marca_c, marca_d, marca_e } = req.body;
-        pool.query (`UPDATE representante SET nome = '${nome}',marca_a = ${marca_a}, marca_b = ${marca_b}, marca_c = ${marca_c}, marca_d = ${marca_d}, marca_e = ${marca_e} WHERE nome = '${nome}'`)
-        res.status(200).send("Usuário atualizado com sucesso")
+        const { nome, marca_a, marca_b, marca_c, marca_d, marca_e, cidades, estado } = req.body;
+        pool.query (`UPDATE representante SET nome = '${nome}',marca_a = ${marca_a}, marca_b = ${marca_b}, marca_c = ${marca_c}, marca_d = ${marca_d}, marca_e = ${marca_e}, cidades = '${cidades}', estado = '${estado}' WHERE nome = '${nome}'`)
+        res.status(200).send("Usuário atualizado com sucesso!")
     }catch (error) {
         console.error(error);
-        res.status(500).send("Erro de conexão com o servidor");        
+        res.status(500).send("Erro de conexão com o servidor.");        
     }
 });
 
@@ -69,9 +69,9 @@ app.delete("/deleteRep/:nome", async (req, res) => {
         const { nome } = req.params;
         client = await pool.connect();        
         pool.query (`DELETE FROM representante WHERE nome = '${nome}'`)
-        res.status(200).send("Usuário deletado com sucesso")             
+        res.status(200).send("Usuário deletado com sucesso!")             
     }catch (error) {
         console.error(error);
-        res.status(500).send("Erro de conexão com o servidor");        
+        res.status(500).send("Erro de conexão com o servidor.");        
     }
 });

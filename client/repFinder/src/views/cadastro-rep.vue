@@ -9,15 +9,21 @@
     <div id="formulario">
         <form @submit.prevent="registerRep">
           <label for="nome">Nome completo:</label><br>
-          <input type="text" name="nome" id="nome" placeholder="Digite o nome" v-model="nome"><br><br>
+          <input type="text" name="nome" id="nome" v-model="nome"><br><br>
 
-          <label for="idade">Data Nascimento (DD/MM/AAAA):</label><br>
+          <label for="idade">Data de Nascimento (DD/MM/AAAA):</label><br>
           <input type="text" name="idade" id="idade" v-model="data_nasc"><br><br>
 
           <label for="sexo">Sexo (M/F):</label><br>
           <input type="text" name="sexo" id="sexo" v-model="sexo"><br><br>
 
-          Marcas Representadas:<br>
+          <label for="cidades">Cidades Atendidas:</label><br>
+          <input type="text" name="cidades" id="cidades" v-model="cidades"><br><br>
+
+          <label for="estado">Estado:</label><br>
+          <input type="text" name="estado" id="estado" v-model="estado"><br><br>
+
+          <h3>Marcas Representadas:</h3><br>
 
           <input type="checkbox" name="marcaA" id="marcaA" value="A" v-model="marcas">
           <label for="marcaA"><h3>Marca A</h3></label><br>
@@ -28,13 +34,13 @@
           <input type="checkbox" name="marcaC" id="marcaC" value="C" v-model="marcas">
           <label for="marcaC"><h3>Marca C</h3></label><br>
 
-          <input type="checkbox" name="marcaD" id="marcaD" value="D" v-model="marcas">
-          <label for="marcaD"><h3>Marca D</h3></label><br>
+          <input type="checkbox" name="cidadeD" id="cidadeD" value="D" v-model="marcas">
+          <label for="cidadeD"><h3>Marca D</h3></label><br>
 
-          <input type="checkbox" name="marcaE" id="marcaE" value="E" v-model="marcas">
-          <label for="marcaE"><h3>Marca E</h3></label><br>
+          <input type="checkbox" name="cidadeE" id="cidadeE" value="E" v-model="marcas">
+          <label for="cidadeE"><h3>Marca E</h3></label><br>
 
-          <button type="submit">Cadastrar Representante</button>
+          <button type="submit">Cadastrar Representante</button><br>
 
         </form>
         <p> {{ message }}</p>
@@ -44,15 +50,18 @@
       </div>
     </div>
 </template>
+
 <script>
 export default {
   data() {
     return {
-      nome: '',
-      data_nasc: '',
-      sexo: '',
+      nome: "",
+      data_nasc: "",
+      sexo: "",
       marcas: [],
-      message: '',
+      cidades: "",
+      estado: "",
+      message: ""
     }
   },
   methods: {
@@ -62,6 +71,8 @@ export default {
         data_nasc: this.data_nasc,
         sexo: this.sexo,
         marcas: this.marcas,
+        cidades: this.cidades,
+        estado: this.estado,
       }
       fetch("http://localhost:3000/registerRep", {
         method:"POST",
@@ -80,7 +91,8 @@ export default {
 }
 </script>
 <style >
-  h1 {
+
+h1 {
   text-align: center;
 }
 

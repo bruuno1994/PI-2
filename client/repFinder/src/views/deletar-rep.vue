@@ -6,7 +6,7 @@
 
         <h1>Deletar Representante </h1>
         
-        <div id="formulario" >
+        <div id="formulario">
             <form @submit.prevent="getAllRep">
                 <button type="submit">Buscar todos</button>
             </form>
@@ -93,7 +93,9 @@ table {
     width: 100%;
 }
 
-#btnDeletar {
+.showUser #btnDeletar:hover {
     background-color:#ff3232e1;
+    color: white;
+    border-color: black;
 }
 </style>

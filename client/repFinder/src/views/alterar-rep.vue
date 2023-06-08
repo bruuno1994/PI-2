@@ -8,7 +8,13 @@
     <div id="formulario">
         <form @submit.prevent="updateRep">
           <label for="nome">Nome completo:</label><br>
-          <input type="text" name="nome" id="nome" placeholder="Digite o nome" v-model="nome"><br><br>
+          <input type="text" name="nome" id="nome" v-model="nome"><br><br>
+
+          <label for="cidades">Cidades Atendidas:</label><br>
+          <input type="text" name="cidades" id="cidades" v-model="cidades"><br><br>
+
+          <label for="estado">Estado:</label><br>
+          <input type="text" name="estado" id="estado" v-model="estado"><br><br>
 
           Marcas Representadas:<br>
 
@@ -25,13 +31,12 @@
           <label for="marcaD"><h3>Marca D</h3></label><br>
 
           <input type="checkbox" name="marcaE" id="marcaE" value="E" v-model="marcas">
-          <label for="marcaE"><h3>Marca E</h3></label><br>
+          <label for="marcaE"><h3>Marca E</h3></label><br><br>
 
           <button type="submit">Atualizar</button>
 
         </form>
         <p> {{ message }}</p>
-        <br>
         <br>
 
         <router-link to="/" ><button>Voltar</button></router-link>
@@ -44,17 +49,21 @@ export default {
     return {
       nome: '',
       marcas: [],
-      message: '',
+      cidades: '',
+      estado: '',
+      message: ''
     }
   },
   methods: {
     updateRep(){
       const data = {
         nome: this.nome,
-        marcas: this.marcas,
+        cidades: this.cidades,
+        estado: this.estado,
+        marcas: this.marcas
       }
       fetch("http://localhost:3000/updateRep", {
-        method:"POST",
+        method:"PUT",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       })

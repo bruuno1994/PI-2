@@ -4,28 +4,39 @@
       <img src="../img/rep-finder.png" alt="imagem representativa">
   </div>
 
-  <h1>Digite o nome a ser pesquisado</h1>
+  <h1>Digite o nome a ser pesquisado:</h1>
   
   <div id="formulario">
       <form @submit.prevent="getRep">
       <label for="nome">Nome:</label><br>
           <input type="text" name="nome" id="nome" v-model="nome"><br><br>
 
-          <button type="submit">Buscar</button>            
-      </form>
+          <button type="submit">Buscar</button> 
+               
+      </form><br>
+
+      <form @submit.prevent="getAllRep">
+                <button type="submit">Buscar todos</button>
+            </form>
 
        <div class="showUser">
           <table >
               <thead>
                   <tr>
                       <th>Nome</th>
-                      <th>Marcas</th>                        
+                      <th>Data de Nascimento</th>
+                      <th>Marcas</th>
+                      <th>Cidades</th>
+                      <th>Estado</th>                   
                   </tr>
               </thead>
               <tbody v-if="resultados.length">
                   <tr v-for="resultado in resultados" :key="resultado.id">
                       <td>{{ resultado.nome }}</td>
+                      <td>{{ resultado.data_nasc }}</td>
                       <td>{{ resultado.marcas }}</td>
+                      <td>{{ resultado.cidades }}</td>
+                      <td>{{ resultado.estado }}</td>
                   </tr>
               </tbody>
           </table>
@@ -59,6 +70,21 @@ methods: {
         console.error(err);
       });
   },
+
+  getAllRep() {
+            fetch('http://localhost:3000/getAllRep', {
+                method: "GET",
+            })
+            .then((response) => {
+                response.json().then((data) => {
+                console.log(JSON.stringify(data));
+                this.resultados = data
+                });
+            })
+            .catch((err) => {
+                console.error(err);
+            });
+        },  
 },
 };
 </script>
@@ -76,6 +102,10 @@ position: absolute;
 padding: 10px;
 text-shadow: 3px 2px 5px black;
 box-shadow: 5px 5px 4px gray;
+}
+
+th, tr, td {
+  padding: 5px;;
 }
 
 .imagem {
