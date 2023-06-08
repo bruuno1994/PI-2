@@ -43,6 +43,16 @@ app.get('/getRep/:nome', async(req, res) => {
     }
 })
 
+app.get('/getAllRep', async(req, res) => {
+    try {
+        register = await pool.connect();
+        const data = await register.query(`SELECT nome FROM representante`);
+        res.send(data.rows)
+    } catch (error) {
+        res.status(500).send('Erro na consulta')
+    }
+})
+
 app.put("/updateRep", async (req, res) => {
     try {
         const { nome, marca_a, marca_b, marca_c, marca_d, marca_e } = req.body;
@@ -54,9 +64,9 @@ app.put("/updateRep", async (req, res) => {
     }
 });
 
-app.delete("/deleteRep", async (req, res) => {
+app.delete("/deleteRep/:nome", async (req, res) => {
     try {
-        const { nome } = req.body;
+        const { nome } = req.params;
         client = await pool.connect();        
         pool.query (`DELETE FROM representante WHERE nome = '${nome}'`)
         res.status(200).send("Usuário deletado com sucesso")             

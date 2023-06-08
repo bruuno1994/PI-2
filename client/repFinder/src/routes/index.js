@@ -10,6 +10,7 @@ const routes = [
   { path: '/cadastro', component: () => import('../views/cadastro-rep.vue') },
   { path: '/busca', component: () => import('../views/busca-rep.vue') },
   { path: '/alterar', component: () => import('../views/alterar-rep.vue') },
+  { path: '/deletar', component: () => import('../views/deletar-rep.vue') },
 ]
 
 

@@ -8,6 +8,7 @@
 
         <div id="dashboard">
             <router-link to="/cadastro"><button> Cadastrar Representantes </button></router-link>    
+            <router-link to="/deletar" ><button> Deletar Representantes </button></router-link> 
             <router-link to="/busca" ><button> Buscar Representantes </button></router-link> 
             <router-link to="/consulta" ><button> Consultar Rota </button></router-link>
             <router-link to="/"><button> Voltar </button></router-link>
