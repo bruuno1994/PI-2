@@ -5,7 +5,7 @@
             <router-link to="/"><img src="../img/logo-projeto.png" alt="logo-projeto"></router-link>
         </div>
         <ul>     
-            <li><a href="" id="producao"> Quem Somos </a></li>
+            <li><router-link to=""> Quem Somos </router-link></li>
             <li><router-link to="/equipe"> Nossa Equipe </router-link></li>
             <li><router-link to="/login"> Login </router-link></li>
         </ul>
@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
     #cabecalho {
   border-bottom: 1px solid midnightblue;
   display: flex;

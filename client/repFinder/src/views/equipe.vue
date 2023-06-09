@@ -1,9 +1,5 @@
 <template>
-  <div>    
-    <label class="switch">
-        <input type="checkbox" />
-        <span class="slider"></span>
-    </label>
+  <div>
 
     <h1>Nossa Equipe</h1>
 
@@ -20,7 +16,7 @@
             </div>
         </div>
 
-        <div class="card" style="width: 15.5rem;">
+        <div class="card" style="width: 15.3rem;">
             <img src="../img/gabriel.jpg" class="card-img-top" alt="Gabriel">
             <div class="card-body">
             <h5 class="card-title">Gabriel Araújo</h5>
@@ -64,60 +60,19 @@
             </div>
         </div>
     </div>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
-import Navbar from '../components/Navbar.vue';
+import Footer from '../components/Footer.vue';
 export default {
-    name: "Equipe"
+    name: "Equipe",
+    components: { Footer }
 }
 </script>
 
-<style>
-    * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-#cabecalho {
-    border-bottom: 1px solid midnightblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    list-style: none;
-    background-color: #2E64FE;
-}
-
-#cabecalho ul {
-    list-style: none;
-    display: flex;
-}
-
-#cabecalho li a {
-    font-size: 1.3em;
-    text-decoration: none;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-}
-
-#cabecalho li a:hover {
-    font-size: 1.3em;
-    text-decoration: none;
-    padding: 10px;
-    color: orange;
-    cursor: pointer;
-    border-bottom: 1px solid white;
-}
+<style scoped>
 
 #nossa-equipe {
     display: flex;
@@ -127,16 +82,5 @@ h1 {
 
 .redes-contato {
     width: 50px;
-}
-
-#logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#logo img {
-    width: 100px;
-    height: 100px;
 }
 </style>

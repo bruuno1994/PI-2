@@ -53,14 +53,14 @@ app.get('/getAllRep', async(req, res) => {
     }
 })
 
-app.put("/updateRep", async (req, res) => {
+app.post("/updateRep", async (req, res) => {
     try {
-        const { nome, marca_a, marca_b, marca_c, marca_d, marca_e, cidades, estado } = req.body;
-        pool.query (`UPDATE representante SET nome = '${nome}',marca_a = ${marca_a}, marca_b = ${marca_b}, marca_c = ${marca_c}, marca_d = ${marca_d}, marca_e = ${marca_e}, cidades = '${cidades}', estado = '${estado}' WHERE nome = '${nome}'`)
-        res.status(200).send("Usuário atualizado com sucesso!")
+        const { nome, marcas, cidades, estado } = req.body;
+        pool.query (`UPDATE representante SET nome = '${nome}',marcas = '${marcas}',cidades = '${cidades}',estado = '${estado}' WHERE nome = '${nome}'`)
+        res.status(200).send("Usuário atualizado com sucesso")
     }catch (error) {
         console.error(error);
-        res.status(500).send("Erro de conexão com o servidor.");        
+        res.status(500).send("Erro de conexão com o servidor");      
     }
 });
 

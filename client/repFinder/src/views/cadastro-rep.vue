@@ -26,19 +26,19 @@
           <h3>Marcas Representadas:</h3><br>
 
           <input type="checkbox" name="marcaA" id="marcaA" value="A" v-model="marcas">
-          <label for="marcaA"><h3>Marca A</h3></label><br>
+          <label for="marcaA"><h3 class="marca-texto">Marca A</h3></label><br>
 
           <input type="checkbox" name="marcaB" id="marcaB" value="B" v-model="marcas">
-          <label for="marcaB"><h3>Marca B</h3></label><br>
+          <label for="marcaB"><h3 class="marca-texto">Marca B</h3></label><br>
           
           <input type="checkbox" name="marcaC" id="marcaC" value="C" v-model="marcas">
-          <label for="marcaC"><h3>Marca C</h3></label><br>
+          <label for="marcaC"><h3 class="marca-texto">Marca C</h3></label><br>
 
           <input type="checkbox" name="cidadeD" id="cidadeD" value="D" v-model="marcas">
-          <label for="cidadeD"><h3>Marca D</h3></label><br>
+          <label for="cidadeD"><h3 class="marca-texto">Marca D</h3></label><br>
 
           <input type="checkbox" name="cidadeE" id="cidadeE" value="E" v-model="marcas">
-          <label for="cidadeE"><h3>Marca E</h3></label><br>
+          <label for="cidadeE"><h3 class="marca-texto">Marca E</h3></label><br>
 
           <button type="submit">Cadastrar Representante</button><br>
 
@@ -175,5 +175,10 @@ h2 {
     justify-content: center;
     border: 1px solid black;
     border-radius: 10px;
-  }  
+  }
+  
+  .marca-texto {
+      font-size: 1.5em;
+      margin-left: 10px;
+    }
 </style>

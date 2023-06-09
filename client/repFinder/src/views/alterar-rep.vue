@@ -16,22 +16,23 @@
           <label for="estado">Estado:</label><br>
           <input type="text" name="estado" id="estado" v-model="estado"><br><br>
 
-          Marcas Representadas:<br>
+          <h3>Marcas Representadas:</h3>
+          <br>
 
           <input type="checkbox" name="marcaA" id="marcaA" value="A" v-model="marcas">
-          <label for="marcaA"><h3>Marca A</h3></label><br>
+          <label for="marcaA"><h3 class="marca-texto" >Marca A</h3></label><br>
 
           <input type="checkbox" name="marcaB" id="marcaB" value="B" v-model="marcas">
-          <label for="marcaB"><h3>Marca B</h3></label><br>
+          <label for="marcaB"><h3 class="marca-texto">Marca B</h3></label><br>
           
           <input type="checkbox" name="marcaC" id="marcaC" value="C" v-model="marcas">
-          <label for="marcaC"><h3>Marca C</h3></label><br>
+          <label for="marcaC"><h3 class="marca-texto">Marca C</h3></label><br>
 
           <input type="checkbox" name="marcaD" id="marcaD" value="D" v-model="marcas">
-          <label for="marcaD"><h3>Marca D</h3></label><br>
+          <label for="marcaD"><h3 class="marca-texto">Marca D</h3></label><br>
 
           <input type="checkbox" name="marcaE" id="marcaE" value="E" v-model="marcas">
-          <label for="marcaE"><h3>Marca E</h3></label><br><br>
+          <label for="marcaE"><h3 class="marca-texto">Marca E</h3></label><br><br>
 
           <button type="submit">Atualizar</button>
 
@@ -39,7 +40,7 @@
         <p> {{ message }}</p>
         <br>
 
-        <router-link to="/" ><button>Voltar</button></router-link>
+        <router-link to="/repr" ><button>Voltar</button></router-link>
     </div>
     </div>
 </template>
@@ -63,7 +64,7 @@ export default {
         marcas: this.marcas
       }
       fetch("http://localhost:3000/updateRep", {
-        method:"PUT",
+        method:"POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       })
@@ -78,6 +79,9 @@ export default {
   }
 }
 </script>
-<style lang="">
-    
+<style>
+    .marca-texto {
+      font-size: 1.5em;
+      margin-left: 10px;
+    }
 </style>
