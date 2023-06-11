@@ -5,7 +5,7 @@
             <router-link to="/"><img src="../img/logo-projeto.png" alt="logo-projeto"></router-link>
         </div>
         <ul>     
-            <li><router-link to=""> Quem Somos </router-link></li>
+            <li><a v-on:click="quem"> Quem Somos </a></li>
             <li><router-link to="/equipe"> Nossa Equipe </router-link></li>
             <li><router-link to="/login"> Login </router-link></li>
         </ul>
@@ -14,7 +14,12 @@
 </template>
 <script>
 export default {
-    name: "Navbar"
+    name: "Navbar",
+    methods: {
+    quem: function () {
+      alert('Essa página ainda está em produção!')
+    }
+  }
 }
 </script>
 

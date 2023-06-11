@@ -75,7 +75,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .showUser {
     width: 50% ;
     background-color: rgba(69, 155, 252, 0.123);

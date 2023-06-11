@@ -25,7 +25,7 @@
 
       <ul class="menu">
         <li class="menu__item"><router-link to="/"><h3 class="menu__link">Inicio</h3></router-link></li>
-        <li class="menu__item"><router-link to=""><h3 class="menu__link" href="#">Quem Somos</h3></router-link></li>
+        <li class="menu__item"><a v-on:click="quem"><h3 class="menu__link" href="#">Quem Somos</h3></a></li>
         <li class="menu__item"><router-link to="/equipe"><h3 class="menu__link">Nossa Equipe</h3></router-link></li>
         <li class="menu__item"><router-link to="/login"><h3 class="menu__link">Login</h3></router-link></li>
       </ul>
@@ -36,7 +36,12 @@
 </template>
 <script>
 export default {
-    name: "Footer"
+    name: "Footer",
+    methods: {
+    quem: function () {
+      alert('Essa página ainda está em produção!')
+    }
+  }
 }
 </script>
 <style scoped>

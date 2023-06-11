@@ -89,20 +89,6 @@ methods: {
 };
 </script>
 <style>
-  h1 {
-text-align: center;
-}
-
-h2 {
-color:#f6782c;
-font-size: 40px;
-border: 3px solid #2E64FE;
-border-radius: 10px;
-position: absolute;
-padding: 10px;
-text-shadow: 3px 2px 5px black;
-box-shadow: 5px 5px 4px gray;
-}
 
 th, tr, td {
   padding: 5px;;
@@ -155,29 +141,6 @@ th, tr, td {
   color: white;
 }
 
-#dashboard {
-  border: 3px solid #f6782c;
-  box-shadow: 4px 4px 3px gray;
-  border-radius: 10px;
-  width: 300px;
-  height: 300px;
-  padding: 10px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-  flex-direction: column;
-}
-
-#mapa {
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px solid black;
-  border-radius: 10px;
-}
-
 .showUser {
       width: 50% ;
       background-color: rgba(69, 155, 252, 0.123);
@@ -187,11 +150,11 @@ th, tr, td {
       margin: 15px 15px;
   }
 
-  table, th,td {
+table, th,td {
       border: 2px solid #4444;
       border-collapse: collapse;
-  }
-  table {
+}
+table {
       width: 100%;
-  }
+}
 </style>

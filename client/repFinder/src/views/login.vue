@@ -1,134 +1,59 @@
 <template>
   <div>
-        <label class="switch">
-          <input type="checkbox" />
-          <span class="slider"></span>
-        </label>
+    <div class="imagem">
+      <img src="../img/rep-finder.png" alt="imagem representativa">
+    </div>
 
-        <div class="imagem">
-          <img src="../img/rep-finder.png" alt="imagem representativa">
+    <div id="formulario">
+      <form @submit.prevent="login">
+        <img src="../img/login-icon.png" alt=""><br>
+        <label for="login">Login</label><br>
+        <input type="text" v-model="username" ><br>
+
+        <label for="senha">Senha</label><br>
+        <input type="password" v-model="password"><br>
+        <div class="btn">
+          <button type="submit">LOGIN</button>
         </div>
-
-        <div id="formulario">
-          <img src="../img/login-icon.png" alt=""><br>
-          <label for="login">Login</label><br>
-          <input type="text"><br>
-
-          <label for="senha">Senha</label><br>
-          <input type="password"><br>
-
-          <router-link to="/adm"><button type="submit">Login como Administrador</button></router-link><br>
-
-          <router-link to="/repr"><button type="submit">Login como Representante</button></router-link>
-
-        </div>
-
-        <div class="bodybox">
-          <footer class="footer">
-            <div class="waves">
-              <div class="wave" id="wave1"></div>
-              <div class="wave" id="wave2"></div>
-              <div class="wave" id="wave3"></div>
-              <div class="wave" id="wave4"></div>
-            </div>
-            <ul class="social-icon">
-              <li class="social-icon__item"><a class="social-icon__link" href="#">
-                <ion-icon name="logo-facebook"></ion-icon>
-              </a></li>
-              <li class="social-icon__item"><a class="social-icon__link" href="#">
-                <ion-icon name="logo-twitter"></ion-icon>
-              </a></li>
-              <li class="social-icon__item"><a class="social-icon__link" href="#">
-                <ion-icon name="logo-linkedin"></ion-icon>
-              </a></li>
-              <li class="social-icon__item"><a class="social-icon__link" href="#">
-                <ion-icon name="logo-instagram"></ion-icon>
-              </a></li>
-            </ul>
-            <ul class="menu">
-              <li class="menu__item"><a class="menu__link" href="/index.html">Inicio</a></li>
-              <li class="menu__item"><a class="menu__link" href="#">Quem Somos</a></li>
-              <li class="menu__item"><a class="menu__link" href="/pages/nossa-equipe.html">Nossa Equipe</a></li>
-              <li class="menu__item"><a class="menu__link" href="/pages/login.html">Login</a></li>
-                  
-            
-            </ul>
-            <p>&copy; 2023 2°DSM FATEC FRANCA  | All Rights Reserved</p>
-          </footer>
-        </div>
+        
+      </form>
+    </div>
   </div>
 </template>
 <script>
       
 export default {
+  data() {
+    return {
+      username: '',
+      password: ''
+    };
+  },
+  methods: {
+    login() {
+      if (this.username === 'admin' && this.password === 'admin123') {
+        this.$router.push('/adm');
+      } else {  
+        this.$router.push('/repr');
+      }
+    }
+  }
     
 }
 </script>
-<style>
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-body {
-    height: calc(100% - 200px);
-  }
-
-#cabecalho {
-    border-bottom: 1px solid midnightblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100px;
-    list-style: none;
-    background-color: #2E64FE;
-}
-
-#cabecalho ul {
-    list-style: none;
-    display: flex;
-}
-
-#cabecalho li a {
-    font-size: 1.3em;
-    text-decoration: none;
-    padding: 10px;
-    color: white;
-    cursor: pointer;
-}
-
-#cabecalho li a:hover {
-    font-size: 1.3em;
-    text-decoration: none;
-    padding: 10px;
-    color: #f6782c;
-    cursor: pointer;
-    border-bottom: 1px solid white;
-}
-
-#logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#logo img {
-    width: 100px;
-    height: 100px;
-}
-
+<style scoped>
 .imagem {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
-  }
+}
   
-  .imagem img {
+.imagem img {
     width: 250px;
-  }
+}
 
-  #formulario {
+#formulario {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -137,17 +62,16 @@ body {
     border-radius: 15px;
     width: 320px;
     height: 490px;
-    position: relative;
-    flex-direction: column;
+    position: relative;    
     background: lightgray;
     color:#0061a6;
     box-shadow: 7px 7px 4px gray;
-  }
-
+}
 
 #formulario input {
     background-color: lightblue;
     border: 2px solid #0061a6;
+    margin: 5px 0 20px 0;
 }
 
 #formulario img {
@@ -159,146 +83,22 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#formulario button {
+.btn {
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
     padding: 5px;
     border-radius: 5px;
     color:#0061a6;
     background-color: lightblue;
 }
 
-#formulario button:hover {
+button:hover {
     padding: 5px;
     border-radius: 5px;
     color:lightblue;
     background-color: #0061a6;
-}
-
-.footer {
-  
-  background: #3586ff;
-  min-height: 50px;
-  padding: 20px 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
-}
-
-.bodybox  {
-  display: flex;
-  justify-content: flex-end;
-  align-items: flex-end;
-  min-height: 100vh;
-}
-
-
-.social-icon,
-.menu {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 10px 0;
-  flex-wrap: wrap;
-}
-
-.social-icon__item,
-.menu__item {
-  list-style: none;
-}
-
-.social-icon__link {
-  font-size: 2rem;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-}
-.social-icon__link:hover {
-  transform: translateY(-15px);
-}
-
-.menu__link {
-  font-size: 1.2rem;
-  color: #fff;
-  margin: 0 10px;
-  display: inline-block;
-  transition: 0.5s;
-  text-decoration: none;
-  opacity: 0.75;
-  font-weight: 300;
-}
-
-.menu__link:hover {
-  opacity: 1;
-  transform: scale(1.25);
-  border-bottom: 1px solid white;
-}
-
-.footer p {
-  color: #fff;
-  margin: 15px 0 10px 0;
-  font-size: 1rem;
-  font-weight: 300;
-}
-
-.wave {
-  position: absolute;
-  top: -100px;
-  left: 0;
-  width: 100%;
-  height: 100px;
-  background: url("https://i.ibb.co/wQZVxxk/wave.png");
-  background-size: 1000px 100px;
-}
-
-.wave#wave1 {
-  z-index: 1000;
-  opacity: 1;
-  bottom: 0;
-  animation: animateWaves 4s linear infinite;
-}
-
-.wave#wave2 {
-  z-index: 999;
-  opacity: 0.5;
-  bottom: 10px;
-  animation: animate 4s linear infinite !important;
-}
-
-.wave#wave3 {
-  z-index: 1000;
-  opacity: 0.2;
-  bottom: 15px;
-  animation: animateWaves 3s linear infinite;
-}
-
-.wave#wave4 {
-  z-index: 999;
-  opacity: 0.7;
-  bottom: 20px;
-  animation: animate 3s linear infinite;
-}
-
-@keyframes animateWaves {
-  0% {
-    background-position-x: 1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
-}
-
-@keyframes animate {
-  0% {
-    background-position-x: -1000px;
-  }
-  100% {
-    background-positon-x: 0px;
-  }
 }
 </style>
