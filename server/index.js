@@ -36,7 +36,7 @@ app.get('/getRep/:nome', async(req, res) => {
     try {
         const { nome } = req.params;
         register = await pool.connect();
-        const data = await register.query(`SELECT nome, marcas, cidades, estado FROM representante where nome = '${nome}' `);
+        const data = await register.query(`SELECT nome,data_nasc, marcas, cidades, estado FROM representante where nome = '${nome}' `);
         res.send(data.rows)
     } catch (error) {
         res.status(500).send('Erro na consulta!')
