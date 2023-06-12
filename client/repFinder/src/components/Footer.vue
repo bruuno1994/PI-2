@@ -1,105 +1,51 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+<template >
+    <div class="bodybox">
+    <footer class="footer">
+      <div class="waves">
+      <div class="wave" id="wave1"></div>
+      <div class="wave" id="wave2"></div>
+      <div class="wave" id="wave3"></div>
+      <div class="wave" id="wave4"></div>
+      </div>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+      <ul class="social-icon">
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-facebook"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-twitter"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-linkedin"></ion-icon>
+        </a></li>
+        <li class="social-icon__item"><a class="social-icon__link" href="#">
+          <ion-icon name="logo-instagram"></ion-icon>
+        </a></li>
+      </ul>
+
+      <ul class="menu">
+        <li class="menu__item"><router-link to="/"><h3 class="menu__link">Inicio</h3></router-link></li>
+        <li class="menu__item"><a v-on:click="quem"><h3 class="menu__link" href="#">Quem Somos</h3></a></li>
+        <li class="menu__item"><router-link to="/equipe"><h3 class="menu__link">Nossa Equipe</h3></router-link></li>
+        <li class="menu__item"><router-link to="/login"><h3 class="menu__link">Login</h3></router-link></li>
+      </ul>
+
+    <p>&copy; 2023 2°DSM FATEC FRANCA  | All Rights Reserved</p>
+    </footer>
+  </div>
+</template>
+<script>
+export default {
+    name: "Footer",
+    methods: {
+    quem: function () {
+      alert('Essa página ainda está em produção!')
+    }
+  }
 }
-
-h1 {
-    text-align: center;
-    margin-top: 20px;
-}
-
-body {
-  height: calc(100% - 100px);
-}
-
-#cabecalho {
-  border-bottom: 1px solid midnightblue;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100px;
-  list-style: none;
-  background-color: #2E64FE;
-}
-
-#cabecalho ul {
-  list-style: none;
-  display: flex;
-}
-
-#cabecalho li a {
-  font-size: 1.3em;
-  text-decoration: none;
-  padding: 10px;
-  color: white;
-  cursor: pointer;
-}
-
-#cabecalho li a:hover {
-  font-size: 1.3em;
-  text-decoration: none;
-  padding: 10px;
-  color: orange;
-  cursor: pointer;
-  border-bottom: 1px solid white;
-
-}
-
-#logo {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-#logo img {
-    width: 100px;
-    height: 100px;
-}
-
-#noticias {
-  font-size: 1vw;
-  text-align: center;
-  padding: 1vw 1vw 10vw 1vw;
-  min-width:40vw;
-  
-
-}
-
-#caixadetexto { 
-  padding: 1vw 1vw 10vw 1vw;
-  font-size: 2vw;
-  text-align: center;
- 
-}
-#imgs {
- 
-  width: 270px;
-  height: 100px;
-}
-#imgs img {
-  width: 270px;
-  height: 100px;
-  object-fit: fill;
-}
-.imagem {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.imagem img {
-  width: 250px;
-}
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
-
-
-.footer {
-  
+</script>
+<style scoped>
+.footer {  
   background: #3586ff;
   min-height: 50px;
   padding: 20px 50px;
@@ -119,7 +65,6 @@ body {
   align-items: flex-end;
   min-height: 100vh;
 }
-
 
 .social-icon,
 .menu {
@@ -148,9 +93,9 @@ body {
 }
 
 .menu__link {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: #fff;
-  margin: 0 10px;
+  margin: 5px 10px;
   display: inline-block;
   transition: 0.5s;
   text-decoration: none;
@@ -226,3 +171,4 @@ body {
     background-positon-x: 0px;
   }
 }
+</style>
